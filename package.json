@@ -1,14 +1,14 @@
 {
-  "name": "game-server",
+  "name": "dci-game-server",
   "version": "0.0.1",
   "description": "A library to ease game server development",
-  "main": "./dist/server.js",
   "scripts": {
-    "start": "nodemon ./dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -w",
+    "build": "rm -r dist && tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kingbaub3/GameServer.git"
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/kingbaub3/GameServer#readme",
   "devDependencies": {
     "@types/node": "^10.5.8",
+    "@types/socket.io": "^1.4.37",
     "codelyzer": "^4.4.3",
     "nodemon": "^1.18.3",
     "ts-node": "^7.0.1",
@@ -28,7 +29,6 @@
     "typescript": "^3.0.1"
   },
   "dependencies": {
-    "@types/socket.io": "^1.4.37",
     "redux": "^4.0.0",
     "socket.io": "^2.1.1"
   }
