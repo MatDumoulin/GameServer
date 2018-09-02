@@ -1,4 +1,4 @@
-import { createStore, Store, Reducer, Unsubscribe } from 'redux';
+import { applyMiddleware, createStore, Store, Reducer, Unsubscribe } from 'redux';
 import { GameAction } from './actions';
 
 /**
@@ -8,11 +8,17 @@ import { GameAction } from './actions';
 export class GameState<T> {
     private _store: Store<T, GameAction>;
 
-    constructor(parentReducer: Reducer) {
+    constructor(parentReducer: Reducer, middleware?: any) {
         if(!parentReducer) {
             console.error("A reducer must be given to the game state in order")
         }
-        this._store = createStore(parentReducer);
+
+        if(middleware) {
+            this._store = createStore(parentReducer, applyMiddleware(middleware));
+        }
+        else {
+            this._store = createStore(parentReducer);
+        }
     }
     
     getState(): T {

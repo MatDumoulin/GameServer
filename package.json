@@ -4,7 +4,7 @@
   "description": "A library to ease game server development",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -r dist && tsc -w",
+    "build": "rm -rf dist && tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "main": "dist/index.js",
@@ -22,7 +22,6 @@
   "devDependencies": {
     "@types/node": "^10.5.8",
     "@types/socket.io": "^1.4.37",
-    "codelyzer": "^4.4.3",
     "nodemon": "^1.18.3",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
