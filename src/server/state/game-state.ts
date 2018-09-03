@@ -8,13 +8,13 @@ import { GameAction } from './actions';
 export class GameState<T> {
     private _store: Store<T, GameAction>;
 
-    constructor(parentReducer: Reducer, middleware?: any) {
+    constructor(parentReducer: Reducer, ...middlewares: any[]) {
         if(!parentReducer) {
             console.error("A reducer must be given to the game state in order")
         }
 
-        if(middleware) {
-            this._store = createStore(parentReducer, applyMiddleware(middleware));
+        if(middlewares && middlewares.length > 0) {
+            this._store = createStore(parentReducer, applyMiddleware(...middlewares));
         }
         else {
             this._store = createStore(parentReducer);
