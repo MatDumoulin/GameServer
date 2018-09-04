@@ -16,6 +16,10 @@ export class SocketManager {
         this._socketMap = new Map<string, Socket>();
     }
 
+    get(id: string): Socket {
+        return this._socketMap.get(id);
+    }
+
     /**
      * Adds the given socket in the manager. This function can be use to replace the socket value for a given id,
      * but it should not be used to remove a socket since the id will remain in the map which can cause false positive
