@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsc -w",
-    "publish-patch": "tsc && npm version patch && npm publish",
+    "publish-patch": "rm -rf dist && tsc && npm version patch && npm publish",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "main": "dist/index.js",
