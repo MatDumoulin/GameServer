@@ -23,7 +23,7 @@ import { Action } from './action';
  * T is the type of the state.
  * A is the type of the actions.
  */
-export class Store<T extends StateInterface, A extends Action> {
+export class Store<T, A extends Action> {
     private _state: BehaviorSubject<T>;
     private _actionStream: Subject<A>;
 
